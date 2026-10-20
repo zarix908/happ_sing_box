@@ -1,0 +1,15 @@
+services:
+  happ-sing-box:
+    build: .
+    container_name: happ-sing-box
+    restart: unless-stopped
+    env_file:
+      - .env
+    ports:
+      - "1080:1080"
+      - "8080:8080"
+    volumes:
+      - sing-box-data:/var/lib/sing-box
+
+volumes:
+  sing-box-data:

@@ -1,0 +1,18 @@
+[package]
+name = "happ-sub-fetch"
+version = "0.1.0"
+edition = "2021"
+description = "Fetch Happ/v2RayTun subscriptions via hpwnr and emit sing-box-compatible proxy URIs"
+
+[[bin]]
+name = "sub-fetch"
+path = "src/main.rs"
+
+[dependencies]
+hpwnr = { git = "https://github.com/Omegaplexx/hpwnr.git", tag = "v1.0.2", default-features = true }
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+strip = true
